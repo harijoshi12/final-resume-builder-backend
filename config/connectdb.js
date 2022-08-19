@@ -4,6 +4,7 @@ const connectDB = async (DATABASE_URL)=>{
   try {
     const DB_OPTIONS ={
       dbName: "resume_builder"
+      
     }
     await mongoose.connect(DATABASE_URL, DB_OPTIONS)
     console.log("connected successfully...")
@@ -13,3 +14,5 @@ const connectDB = async (DATABASE_URL)=>{
 }
 
 export default connectDB
+
+// pass- resume_builder123!@#
