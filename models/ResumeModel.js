@@ -1,70 +1,108 @@
 import mongoose from "mongoose";
+import { resumeInputCodes } from "../constants/constants.js";
 
-const sectionTitleSchema = new mongoose.Schema({
-  title: {type: String}
+// Schemas
+const secTitleSchema = new mongoose.Schema({
+  [resumeInputCodes.SECTITLE]: { type: String, default: "Technical Skills" },
+})
+
+const contactSchema = new mongoose.Schema({
+  [resumeInputCodes.EMAIL]: { type: String },
+  [resumeInputCodes.EMAILCHECKED]: { type: Boolean },
+  [resumeInputCodes.PHONE]: { type: String },
+  [resumeInputCodes.PHONECHECKED]: { type: Boolean },
+  [resumeInputCodes.ADDRESS]: { type: String },
+  [resumeInputCodes.ADDRESSCHECKED]: { type: Boolean },
+  [resumeInputCodes.WEBSITE]: { type: String },
+  [resumeInputCodes.WEBSITECHECKED]: { type: Boolean },
+  [resumeInputCodes.LINKEDIN]: { type: String },
+  [resumeInputCodes.LINKEDINCHECKED]: { type: Boolean },
+  [resumeInputCodes.GITHUB]: { type: String },
+  [resumeInputCodes.GITHUBCHECKED]: { type: Boolean },
+  [resumeInputCodes.STACKOVERFLOW]: { type: String },
+  [resumeInputCodes.STACKOVERFLOWCHECKED]: { type: Boolean },
+  [resumeInputCodes.QUORA]: { type: String },
+  [resumeInputCodes.QUORACHECKED]: { type: Boolean },
+  [resumeInputCodes.MEDIUM]: { type: String },
+  [resumeInputCodes.MEDIUMCHECKED]: { type: Boolean },
 })
 
 const personalInfoSchema = new mongoose.Schema({
-  name: {type: String},
-  profession: {type: String},
-  ProfSummary: {type: String}
+  [resumeInputCodes.NAME]: { type: String },
+  [resumeInputCodes.PROFESSION]: { type: String },
+  [resumeInputCodes.IMAGESRC]: {
+    type: String, default:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  },
+  [resumeInputCodes.TAGLINE]: { type: String },
 })
 
-const contactDetailsSchema = new mongoose.Schema({
-  email: {type: String},
-  phone: {type: Number},
-  addressCountry: {type: String},
-  addressState: {type: String},
-  addressCity: {type: String},
-  website: {type: String},
-  linkedin: {type: String},
-  github: {type: String},
-  stackOverflow: {type: String},
-  quora: {type: String},
-  medium: {type: String},
+const techskillSchema = new mongoose.Schema({
+  [resumeInputCodes.TECHSKILL]: { type: String },
 })
 
-const techSkillSchema = ({
-  techskill: {type: String},
+const progLangSchema = new mongoose.Schema({
+  [resumeInputCodes.PROGLANG]: { type: String },
+  [resumeInputCodes.PROGLANGLEVEL]: { type: Number },
 })
 
-const ProgLangSchema = ({
-  progLang: {type: String},
-  progLangLevel: {type: Number},
+const experienceSchema = new mongoose.Schema({
+  [resumeInputCodes.JOBSTARTDATE]: { type: Number },
+  [resumeInputCodes.JOBENDDATE]: { type: Number },
+  [resumeInputCodes.JOBPRESENT]: { type: Boolean },
+  [resumeInputCodes.JOBTITLE]: { type: String },
+  [resumeInputCodes.JOBCOMPANY]: { type: String },
+  [resumeInputCodes.JOBDESC]: { type: String },
 })
 
-const experienceSchema = ({
-  jobStartDate: {type: Number},
-  jobEndDate: {type: Number},
-  jobPresent: {type: Boolean},
-  jobTitle: {type: String},
-  jobCompany: {type: String},
-  jobDescription: {type: String},
+const projectSchema = new mongoose.Schema({
+  [resumeInputCodes.PROJECTTITLE]: { type: String },
+  [resumeInputCodes.PROJECTTECHSTACK]: { type: String },
+  [resumeInputCodes.PROJECTDESC]: { type: String },
+  [resumeInputCodes.PROJECTGITLINK]: { type: String },
+  [resumeInputCodes.PROJECTLIVEDEMO]: { type: String },
 })
 
-const projectSchema = ({
-  projectTitle: {type: String},
-  projectTechStack: {type: String},
-  projectDescription: {type: String},
-  projectGitLik: {type: String},
-  projectLiveDemo: {type: String},
+const languageSchema = new mongoose.Schema({
+  [resumeInputCodes.LANGUAGE]: { type: String },
+  [resumeInputCodes.LANGUAGELEVEL]: { type: Number },
 })
 
-const languageSchema = ({
-  language: {type: String},
-  languageLevel: {type: Number}
+const educationSchema = new mongoose.Schema({
+  [resumeInputCodes.STUDYPROGRAM]: { type: String },
+  [resumeInputCodes.INSTITUTION]: { type: String },
+  [resumeInputCodes.CGPA]: { type: String },
+  [resumeInputCodes.STUDYSTARTDATE]: { type: Number },
+  [resumeInputCodes.STUDYENDDATE]: { type: Number },
+  [resumeInputCodes.STUDYPRESENT]: { type: Boolean },
+  [resumeInputCodes.STUDYPLACE]: { type: String },
 })
 
-const educationSchema = ({
-  studyProgram: {type: String},
-  institution: {type: String},
-  cgpa: {type: Number},
-  studyStartDate: {type: Number},
-  studyEndDate: {type: Number},
-  studyPresent: {type: Boolean},
-  studyPlace: {type: String},
+const interestSchema = new mongoose.Schema({
+  [resumeInputCodes.INTEREST]: { type: String }
 })
 
-const interestSchema = ({
-  interest: {type: String},
-})
+const resumeSchema = new mongoose.Schema({
+  secTitles: [secTitleSchema],
+  personalInfo: personalInfoSchema,
+  contactDetails: contactSchema,
+  techskills: [techskillSchema],
+  progLangs: [progLangSchema],
+  experiences: [experienceSchema],
+  projects: [projectSchema],
+  languages: [languageSchema],
+  educations: [educationSchema],
+  interests: [interestSchema],
+  templateId: { type: String },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  }
+}, { timestamps: true, })
+
+
+// Model
+const ResumeModel = mongoose.model("Resume", resumeSchema)
+
+export default ResumeModel
