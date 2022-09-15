@@ -78,6 +78,7 @@ export const resumeInputCodes = {
 }
 
 export const userInputCodes = {
+  // for form
   NAME: "name",
   USERNAME: "username",
   EMAILLOGIN: "email_login",
@@ -90,4 +91,11 @@ export const userInputCodes = {
   CART: "cart",
   DOCUMENTS: "documents",
   IMAGESRC: "imageSrc",
+
+  // for database
+  SIGNINPROVIDER: "signInProvider",
+  USERID: "userId",
+  EMAIL: "email",
+  PASSWORD: "password",
+  EMAILVARIFIED: "emailVarified"
 }

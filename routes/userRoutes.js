@@ -6,7 +6,7 @@ import checkUserAuth from "../middlewares/auth-middleware.js";
 
 router.get("/", getUser)
 
-router.get("/current-user", currentUser)
+router.patch("/current-user", currentUser)
 
 
 export default router

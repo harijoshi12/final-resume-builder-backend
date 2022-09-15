@@ -3,9 +3,12 @@ import { userInputCodes } from "../constants/constants.js";
 
 const userSchema = new mongoose.Schema(
   {
+    [userInputCodes.USERID]: { type: String },
+    [userInputCodes.SIGNINPROVIDER]: { type: String },
     [userInputCodes.NAME]: { type: String, trim: true },
     [userInputCodes.USERNAME]: { type: String, trim: true },
     [userInputCodes.EMAIL]: { type: String, required: true, trim: true, unique: true, index: true },
+    [userInputCodes.EMAILVARIFIED]: { type: Boolean, default: false },
     [userInputCodes.PASSWORD]: { type: String, trim: true },
     [userInputCodes.ISSUPERADMIN]: { type: Boolean, required: true, default: false },
     [userInputCodes.ROLE]: { type: String, default: "subscriber" },
