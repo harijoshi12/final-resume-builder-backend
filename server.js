@@ -5,6 +5,7 @@ dotenv.config()
 import connectDB from './config/connectdb.js'
 import userRoutes from './routes/userRoutes.js'
 import resumeRoutes from './routes/resumeRoutes.js'
+import contactFormRoutes from './routes/contactFormRoutes.js'
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use(express.json())
 // Load Routes
 app.use("/api/user", userRoutes)
 app.use("/api/resume", resumeRoutes)
+app.use("/api/contact-form", contactFormRoutes)
 
 // app.use("/", (req, res)=>{
 //   res.send("hello hari")

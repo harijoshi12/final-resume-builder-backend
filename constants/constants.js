@@ -99,3 +99,11 @@ export const userInputCodes = {
   PASSWORD: "password",
   EMAILVARIFIED: "emailVarified"
 }
+
+// contact form constants
+export const contactFormCodes = {
+  FIRSTNAME: "firstName",
+  LASTNAME: "lastName",
+  CONTACTEMAIL: "contactEmail",
+  MESSAGE: "message"
+}
