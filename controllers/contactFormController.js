@@ -2,6 +2,7 @@ import ContactFormModel from "../models/ContactFormModel.js";
 
 const createContactForm = async (req, res) => {
   const contactFormDetails = req.body
+  console.log(contactFormDetails)
   try {
     const data = await new ContactFormModel(contactFormDetails).save()
     res.status(201).json(data)

@@ -10,6 +10,7 @@ export const resumeInputCodes = {
   RESUMETITLE: "resumeTitle",
   // section title
   SECTITLE: "secTitle",
+  SECID: "secId",
   // personal info
   NAME: "userName",
   PROFESSION: "profession",
@@ -57,6 +58,7 @@ export const resumeInputCodes = {
   PROJECTTECHSTACK: "projectTechStack",
   PROJECTDESC: "projectDesc",
   PROJECTGITLINK: "projectGitLink",
+  PROJECTVIDEOLINK: "videoExplanationLink",
   PROJECTLIVEDEMO: "projectLiveDemo",
 
   // languages

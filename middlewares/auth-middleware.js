@@ -7,12 +7,14 @@ import { userInputCodes } from "../constants/constants.js";
 
 const findOrCreateUser = async (req, res, next) => {
   const userDetails = req.body
+  // console.log('req.headers : ', req.headers);
   try {
+    if (!req.headers.token) return res.send('unauhorized')
     const firebaseUser = await admin.auth().verifyIdToken(req.headers.token)
     const user = await UserModel.findOne({ email: firebaseUser.email })
 
     if (user) {
-      console.log("found user=====> ", user)
+      // console.log("found user=====> ", user)
       req.currentUser = user
       next()
     } else {
@@ -31,7 +33,7 @@ const findOrCreateUser = async (req, res, next) => {
         [userInputCodes.DOCUMENTS]: userDetails.documentIds
       }).save()
 
-      console.log("new user===> ", newUser)
+      // console.log("new user===> ", newUser)
       req.currentUser = newUser
       next()
     }

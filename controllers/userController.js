@@ -1,7 +1,9 @@
+import mongoose from "mongoose";
 import UserModel from "../models/UserModel.js";
 
 
 const currentUser = async (req, res) => {
+
   console.log("returning current user ====> ")
   res.status(201).json(req.currentUser)
 }
