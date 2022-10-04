@@ -19,8 +19,8 @@ const progLangSchema = new mongoose.Schema({
 });
 
 const experienceSchema = new mongoose.Schema({
-  [resumeInputCodes.JOBSTARTDATE]: { type: Number },
-  [resumeInputCodes.JOBENDDATE]: { type: Number },
+  [resumeInputCodes.JOBSTARTDATE]: { type: String },
+  [resumeInputCodes.JOBENDDATE]: { type: String },
   [resumeInputCodes.JOBPRESENT]: { type: Boolean },
   [resumeInputCodes.JOBTITLE]: { type: String },
   [resumeInputCodes.JOBCOMPANY]: { type: String },
@@ -137,7 +137,7 @@ const resumeSchema = new mongoose.Schema(
         default: () => [
           {
             [resumeInputCodes.JOBSTARTDATE]: 2021,
-            [resumeInputCodes.JOBENDDATE]: null,
+            [resumeInputCodes.JOBENDDATE]: "",
             [resumeInputCodes.JOBPRESENT]: true,
             [resumeInputCodes.JOBTITLE]: "FreeLancer",
             [resumeInputCodes.JOBCOMPANY]: "Freelancing",
@@ -156,6 +156,22 @@ const resumeSchema = new mongoose.Schema(
           {
             [resumeInputCodes.EMAIL]: "youremail@email.com",
             [resumeInputCodes.EMAILCHECKED]: true,
+            [resumeInputCodes.PHONE]: "",
+            [resumeInputCodes.PHONECHECKED]: false,
+            [resumeInputCodes.ADDRESS]: "",
+            [resumeInputCodes.ADDRESSCHECKED]: false,
+            [resumeInputCodes.WEBSITE]: "",
+            [resumeInputCodes.WEBSITECHECKED]: false,
+            [resumeInputCodes.LINKEDIN]: "",
+            [resumeInputCodes.LINKEDINCHECKED]: false,
+            [resumeInputCodes.GITHUB]: "",
+            [resumeInputCodes.GITHUBCHECKED]: false,
+            [resumeInputCodes.STACKOVERFLOW]: "",
+            [resumeInputCodes.STACKOVERFLOWCHECKED]: false,
+            [resumeInputCodes.QUORA]: "",
+            [resumeInputCodes.QUORACHECKED]: false,
+            [resumeInputCodes.MEDIUM]: "",
+            [resumeInputCodes.MEDIUMCHECKED]: false,
           },
         ],
       }

@@ -46,7 +46,26 @@ const getOrCreateResume = async (req, res) => {
       const resume = await new ResumeModel({
         ...resumeDetails,
         secContactDetails: {
-          contactDetails: [{ [resumeInputCodes.EMAIL]: req.currentUser.email }]
+          contactDetails: [{
+            [resumeInputCodes.EMAIL]: req.currentUser.email,
+            [resumeInputCodes.EMAILCHECKED]: true,
+            [resumeInputCodes.PHONE]: "",
+            [resumeInputCodes.PHONECHECKED]: false,
+            [resumeInputCodes.ADDRESS]: "",
+            [resumeInputCodes.ADDRESSCHECKED]: false,
+            [resumeInputCodes.WEBSITE]: "",
+            [resumeInputCodes.WEBSITECHECKED]: false,
+            [resumeInputCodes.LINKEDIN]: "",
+            [resumeInputCodes.LINKEDINCHECKED]: false,
+            [resumeInputCodes.GITHUB]: "",
+            [resumeInputCodes.GITHUBCHECKED]: false,
+            [resumeInputCodes.STACKOVERFLOW]: "",
+            [resumeInputCodes.STACKOVERFLOWCHECKED]: false,
+            [resumeInputCodes.QUORA]: "",
+            [resumeInputCodes.QUORACHECKED]: false,
+            [resumeInputCodes.MEDIUM]: "",
+            [resumeInputCodes.MEDIUMCHECKED]: false,
+          }]
         },
         user: req.currentUser._id,
       }).save();
