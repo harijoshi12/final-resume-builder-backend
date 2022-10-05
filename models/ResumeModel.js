@@ -59,15 +59,15 @@ const projectSchema = new mongoose.Schema({
 
 const languageSchema = new mongoose.Schema({
   [resumeInputCodes.LANGUAGE]: { type: String },
-  [resumeInputCodes.LANGUAGELEVEL]: { type: Number },
+  [resumeInputCodes.LANGUAGELEVEL]: { type: String },
 });
 
 const educationSchema = new mongoose.Schema({
   [resumeInputCodes.STUDYPROGRAM]: { type: String },
   [resumeInputCodes.INSTITUTION]: { type: String },
   [resumeInputCodes.CGPA]: { type: String },
-  [resumeInputCodes.STUDYSTARTDATE]: { type: Number },
-  [resumeInputCodes.STUDYENDDATE]: { type: Number },
+  [resumeInputCodes.STUDYSTARTDATE]: { type: String },
+  [resumeInputCodes.STUDYENDDATE]: { type: String },
   [resumeInputCodes.STUDYPRESENT]: { type: Boolean },
   [resumeInputCodes.STUDYPLACE]: { type: String },
 });
@@ -189,6 +189,7 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.PROJECTDESC]:
               "A basic chat app with group chat & one to one chat functionality.",
             [resumeInputCodes.PROJECTGITLINK]: "github.com",
+            [resumeInputCodes.PROJECTVIDEOLINK]: "youtube.com",
             [resumeInputCodes.PROJECTLIVEDEMO]: "playstore.com",
           },
         ],
@@ -202,11 +203,11 @@ const resumeSchema = new mongoose.Schema(
         default: () => [
           {
             [resumeInputCodes.LANGUAGE]: "English",
-            [resumeInputCodes.LANGUAGELEVEL]: 4,
+            [resumeInputCodes.LANGUAGELEVEL]: "4",
           },
           {
             [resumeInputCodes.LANGUAGE]: "Hindi",
-            [resumeInputCodes.LANGUAGELEVEL]: 5,
+            [resumeInputCodes.LANGUAGELEVEL]: "5",
           },
         ],
       }
@@ -221,8 +222,8 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.STUDYPROGRAM]: "Computer Sciene",
             [resumeInputCodes.INSTITUTION]: "Engineering College",
             [resumeInputCodes.CGPA]: "8.9",
-            [resumeInputCodes.STUDYSTARTDATE]: 2017,
-            [resumeInputCodes.STUDYENDDATE]: 2021,
+            [resumeInputCodes.STUDYSTARTDATE]: "2017",
+            [resumeInputCodes.STUDYENDDATE]: "2021",
             [resumeInputCodes.STUDYPRESENT]: false,
             [resumeInputCodes.STUDYPLACE]: "Dehradun",
           },
