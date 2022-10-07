@@ -3,8 +3,6 @@ import UserModel from '../models/UserModel.js'
 import admin from "../firebase/index.js";
 import { userInputCodes } from "../constants/constants.js";
 
-
-
 const findOrCreateUser = async (req, res, next) => {
   const userDetails = req.body
   // console.log('req.headers : ', req.headers);

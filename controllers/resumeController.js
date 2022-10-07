@@ -4,12 +4,7 @@ import UserModel from "../models/UserModel.js";
 
 const getResume = async (req, res) => {
   try {
-    const user = await UserModel.findOne({ _id: req.currentUser._id });
-    // console.log("already user===>", user);
-    const resumeId = user.documents;
-    const resume = await ResumeModel.findOne({ _id: resumeId });
-    // console.log("alredy name==>", resumeId)
-    // console.log("already resumeData===>", resume)
+    const resume = await ResumeModel.findOne({ _id: req.currentUser.documents });
     res.status(201).json(resume);
   } catch (error) {
     console.log(error)
@@ -18,15 +13,37 @@ const getResume = async (req, res) => {
 
 const createResume = async (req, res) => {
   const resumeDetails = req.body;
-  const resume = new ResumeModel({
+  const resume = await new ResumeModel({
     ...resumeDetails,
     secContactDetails: {
-      contactDetails: [{ [resumeInputCodes.EMAIL]: req.currentUser.email }]
+      contactDetails: [{
+        [resumeInputCodes.EMAIL]: req.currentUser.email,
+        [resumeInputCodes.EMAILCHECKED]: true,
+        [resumeInputCodes.PHONE]: "",
+        [resumeInputCodes.PHONECHECKED]: false,
+        [resumeInputCodes.ADDRESS]: "",
+        [resumeInputCodes.ADDRESSCHECKED]: false,
+        [resumeInputCodes.WEBSITE]: "",
+        [resumeInputCodes.WEBSITECHECKED]: false,
+        [resumeInputCodes.LINKEDIN]: "",
+        [resumeInputCodes.LINKEDINCHECKED]: false,
+        [resumeInputCodes.GITHUB]: "",
+        [resumeInputCodes.GITHUBCHECKED]: false,
+        [resumeInputCodes.STACKOVERFLOW]: "",
+        [resumeInputCodes.STACKOVERFLOWCHECKED]: false,
+        [resumeInputCodes.QUORA]: "",
+        [resumeInputCodes.QUORACHECKED]: false,
+        [resumeInputCodes.MEDIUM]: "",
+        [resumeInputCodes.MEDIUMCHECKED]: false,
+      }]
     },
     user: req.currentUser._id,
-  });
-  const createdResume = await resume.save();
-  res.status(201).json(createdResume);
+  }).save();
+  const updatedUser = await UserModel.findOneAndUpdate(
+    { _id: req.currentUser._id },
+    { documents: resume._id }
+  );
+  res.status(201).json(resume);
 };
 
 const updateResume = async (req, res) => {

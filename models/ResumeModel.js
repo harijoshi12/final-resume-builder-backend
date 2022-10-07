@@ -7,15 +7,18 @@ const personalInfoSchema = new mongoose.Schema({
   [resumeInputCodes.PROFESSION]: { type: String },
   [resumeInputCodes.IMAGESRC]: { type: String },
   [resumeInputCodes.TAGLINE]: { type: String },
+  id: { type: String }
 });
 
 const techskillSchema = new mongoose.Schema({
   [resumeInputCodes.TECHSKILL]: { type: String },
+  id: { type: String }
 });
 
 const progLangSchema = new mongoose.Schema({
   [resumeInputCodes.PROGLANG]: { type: String },
   [resumeInputCodes.PROGLANGLEVEL]: { type: Number },
+  id: { type: String }
 });
 
 const experienceSchema = new mongoose.Schema({
@@ -25,6 +28,7 @@ const experienceSchema = new mongoose.Schema({
   [resumeInputCodes.JOBTITLE]: { type: String },
   [resumeInputCodes.JOBCOMPANY]: { type: String },
   [resumeInputCodes.JOBDESC]: { type: String },
+  id: { type: String }
 });
 
 const contactSchema = new mongoose.Schema({
@@ -46,6 +50,7 @@ const contactSchema = new mongoose.Schema({
   [resumeInputCodes.QUORACHECKED]: { type: Boolean },
   [resumeInputCodes.MEDIUM]: { type: String },
   [resumeInputCodes.MEDIUMCHECKED]: { type: Boolean },
+  id: { type: String }
 });
 
 const projectSchema = new mongoose.Schema({
@@ -55,11 +60,13 @@ const projectSchema = new mongoose.Schema({
   [resumeInputCodes.PROJECTGITLINK]: { type: String },
   [resumeInputCodes.PROJECTVIDEOLINK]: { type: String },
   [resumeInputCodes.PROJECTLIVEDEMO]: { type: String },
+  id: { type: String }
 });
 
 const languageSchema = new mongoose.Schema({
   [resumeInputCodes.LANGUAGE]: { type: String },
   [resumeInputCodes.LANGUAGELEVEL]: { type: String },
+  id: { type: String }
 });
 
 const educationSchema = new mongoose.Schema({
@@ -70,10 +77,12 @@ const educationSchema = new mongoose.Schema({
   [resumeInputCodes.STUDYENDDATE]: { type: String },
   [resumeInputCodes.STUDYPRESENT]: { type: Boolean },
   [resumeInputCodes.STUDYPLACE]: { type: String },
+  id: { type: String }
 });
 
 const interestSchema = new mongoose.Schema({
   [resumeInputCodes.INTEREST]: { type: String },
+  id: { type: String }
 });
 
 const resumeSchema = new mongoose.Schema(
@@ -93,6 +102,7 @@ const resumeSchema = new mongoose.Schema(
 
             [resumeInputCodes.TAGLINE]:
               "Seeking a challenging position in an organization where I can use my talents and skills to grow and expand an organization as well as myself.",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
         ],
       },
@@ -105,9 +115,11 @@ const resumeSchema = new mongoose.Schema(
         default: () => [
           {
             [resumeInputCodes.TECHSKILL]: "React",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
           {
             [resumeInputCodes.TECHSKILL]: "NodeJs",
+            id: "c24ee310-6833-4d5d-9b5b-7aca1e008931",
           },
         ],
       }
@@ -121,10 +133,12 @@ const resumeSchema = new mongoose.Schema(
           {
             [resumeInputCodes.PROGLANG]: "JavaScript",
             [resumeInputCodes.PROGLANGLEVEL]: 8,
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
           {
             [resumeInputCodes.PROGLANG]: "Java",
             [resumeInputCodes.PROGLANGLEVEL]: 7,
+            id: "c24ee310-6833-4d5d-9b5b-7aca1e008931",
           },
         ],
       }
@@ -143,6 +157,7 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.JOBCOMPANY]: "Freelancing",
             [resumeInputCodes.JOBDESC]:
               "I am doing freelancing since past 1 year",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
         ],
       }
@@ -172,6 +187,7 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.QUORACHECKED]: false,
             [resumeInputCodes.MEDIUM]: "",
             [resumeInputCodes.MEDIUMCHECKED]: false,
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
         ],
       }
@@ -191,6 +207,7 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.PROJECTGITLINK]: "github.com",
             [resumeInputCodes.PROJECTVIDEOLINK]: "youtube.com",
             [resumeInputCodes.PROJECTLIVEDEMO]: "playstore.com",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
         ],
       }
@@ -204,10 +221,12 @@ const resumeSchema = new mongoose.Schema(
           {
             [resumeInputCodes.LANGUAGE]: "English",
             [resumeInputCodes.LANGUAGELEVEL]: "4",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
           {
             [resumeInputCodes.LANGUAGE]: "Hindi",
             [resumeInputCodes.LANGUAGELEVEL]: "5",
+            id: "c24ee310-6833-4d5d-9b5b-7aca1e008931",
           },
         ],
       }
@@ -226,6 +245,7 @@ const resumeSchema = new mongoose.Schema(
             [resumeInputCodes.STUDYENDDATE]: "2021",
             [resumeInputCodes.STUDYPRESENT]: false,
             [resumeInputCodes.STUDYPLACE]: "Dehradun",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
         ],
       }
@@ -238,9 +258,11 @@ const resumeSchema = new mongoose.Schema(
         default: () => [
           {
             [resumeInputCodes.INTEREST]: "Solving Puzzles",
+            id: "3e534881-edf1-419d-bed8-b525edcc7a54",
           },
           {
             [resumeInputCodes.INTEREST]: "Coding",
+            id: "c24ee310-6833-4d5d-9b5b-7aca1e008931",
           },
         ],
       }
