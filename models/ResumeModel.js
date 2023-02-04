@@ -88,6 +88,7 @@ const interestSchema = new mongoose.Schema({
 const resumeSchema = new mongoose.Schema(
   {
     templateId: { type: String, default: "1" },
+    resumeName: { type: String, default: "" },
     secPersonalInfo: {
       [resumeInputCodes.SECTITLE]: { type: String, default: "Personal Info" },
       [resumeInputCodes.SECID]: { type: String, default: "1" },
